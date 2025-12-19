@@ -1,0 +1,32 @@
+# Render example config for a Node.js web service with managed Postgres
+# Replace repo and branch with your repository details if you want render to
+# create services from this file.
+
+services:
+  - type: web
+    name: tron-proxy-server
+    env: node
+    plan: free
+    repo: "<YOUR_GIT_REPO_URL>"
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    env:
+      - key: TRON_PRO_API_KEY
+        sync: true
+
+# Uncomment and configure the database section if you want Render to
+# provision a managed Postgres instance alongside the service.
+
+databases:
+  - name: tron-proxy-db
+    engine: postgresql
+    version: "14"
+    plan: starter
+    # You can optionally set initialUser / initialPassword here, but
+    # Render will provide the DATABASE_URL after provisioning.
+
+# Notes:
+# - On Render, set any secrets via the Dashboard (TRON_PRO_API_KEY, etc.).
+# - If you use the managed Postgres above, Render will expose DATABASE_URL
+#   to the service; our app will auto-switch to Postgres when DATABASE_URL is set.
