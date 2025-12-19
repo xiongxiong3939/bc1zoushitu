@@ -1,0 +1,18 @@
+{
+  "name": "tron-proxy-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7",
+    "pg": "^8.11.0",
+    "sqlite3": "^5.1.6",
+    "sql.js": "^1.8.0"
+  }
+}
